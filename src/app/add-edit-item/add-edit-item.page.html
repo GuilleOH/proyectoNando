@@ -1,0 +1,134 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 285 60" id="logo" class="ion-padding" style="width: 160px;">
+            <defs>
+              <style type="text/css">
+                .primary { fill: #484c7d; }
+                .dark .primary { fill:#5C6BC0;  }
+              </style>
+            </defs>
+            <g id="TODOO">
+              <polygon id="T" class="primary" points="60,0 45,0 15,0 0,0 0,30 15,30 15,60 45,60 45,30 60,30 "/>
+              <circle id="O1" class="primary moveLetter60" cx="90" cy="30" r="30"/>
+              <path id="D" class="primary" d="M135 60c17,0 30,-13 30,-30 0,-17 -13,-30 -30,-30l-15 0 0 60 15 0z"/>
+              <circle id="O2" class="primary" cx="195" cy="30" r="30"/>
+              <circle id="O3" class="primary" cx="255" cy="30" r="30"/>
+            </g>
+          </svg>
+
+          <ion-buttons class="ion-float-right" slot="end">
+            <ion-button color="tertiary" [routerLink]="['/splash2']">
+              <ion-icon name="rocket"></ion-icon>
+            </ion-button>
+
+            <ion-button color="tertiary" [routerLink]="['/login']">
+              <ion-icon name="person"></ion-icon>
+            </ion-button>
+
+            <ion-button color="tertiary" [routerLink]="['/splash2']">
+              <ion-icon name="settings-outline"></ion-icon>
+            </ion-button>
+
+            <ion-button color="tertiary" [routerLink]="['/home']">
+              <ion-icon size="large" name="close-circle"></ion-icon>
+            </ion-button>
+
+          </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+
+    <ion-item>
+      <ion-label position="floating">Task</ion-label>
+      <ion-input [(ngModel)]="item.task"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label (click)="onOpenMap()">Location: {{item.location ? item.location.direction: 'la calle eb mia'}}</ion-label>
+      <
+      <!-- <ion-select multiple="true" cancelText="Cancelar" okText="Aceptar" [(ngModel)]="item.location">
+        <ion-select-option value="Home">Home</ion-select-option>
+        <ion-select-option value="Father's home">Father's home</ion-select-option>
+        <ion-select-option value="Boy/Girlfriend's house">Boy/Girlfriend's house</ion-select-option>
+        <ion-select-option value="Friend's house">Friend's house</ion-select-option>
+        <ion-select-option value="Favorite Bar">Favorite Bar</ion-select-option>
+        <ion-select-option value="Office">Office</ion-select-option>
+        <ion-select-option value="Mall">Mall</ion-select-option>
+        <ion-select-option value="Neighborhood">Neighborhood</ion-select-option>
+        <ion-select-option value="Market">Market</ion-select-option>
+        <ion-select-option value="Park">Park</ion-select-option>
+      </ion-select> -->
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Comments</ion-label>
+      <ion-input [(ngModel)]="item.comment"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Duration</ion-label>
+      <ion-select cancelText="Cancelar" okText="Aceptar" [(ngModel)]="item.duration">
+        <ion-select-option value="15 min.">15 min.</ion-select-option>
+        <ion-select-option value="30 min.">30 min.</ion-select-option>
+        <ion-select-option value="45 min.">45 min.</ion-select-option>
+        <ion-select-option value="1 h.">1 h.</ion-select-option>
+        <ion-select-option value="1:15 h.">1:15 h.</ion-select-option>
+        <ion-select-option value="1:30 h.">1:30 h.</ion-select-option>
+        <ion-select-option value="2 h.">2 h.</ion-select-option>
+        <ion-select-option value="2:30 h.">2:30 h.</ion-select-option>
+        <ion-select-option value="3 h.">3 h.</ion-select-option>
+        <ion-select-option value="4 h.">4 h.</ion-select-option>
+        <ion-select-option value="5 h.">5 h.</ion-select-option>
+        <ion-select-option value="6 h.">6 h.</ion-select-option>
+        <ion-select-option value="7 h.">7 h.</ion-select-option>
+        <ion-select-option value="8 h.">8 h.</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+
+      <ion-label position="floating">Time</ion-label>
+      <ion-datetime display-format="HH:mm" [(ngModel)]="item.date"></ion-datetime>
+
+    </ion-item>
+
+  </ion-list>
+
+  <ion-segment [(ngModel)]="item.icon">
+    <ion-segment-button *ngFor="let icono of iconos" [value]="icono">
+      <ion-icon [name]="icono"></ion-icon>
+
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-segment [(ngModel)]="item.color">
+  <ion-segment-button *ngFor="let color of colores"  class="{{color.fondo}}" [value]="color.valor">
+      <p>{{color.texto}}</p>
+    </ion-segment-button>
+  </ion-segment>
+
+</ion-content>
+
+<ion-footer class="ion-no-border">
+
+  <ion-toolbar>
+
+    <ion-segment color="primary">
+      <ion-segment-button class="cancel-button" layout="icon-start" [routerLink]="['/home']">
+        <ion-icon name="close-circle"  size="large"></ion-icon>
+        Cancel
+      </ion-segment-button>
+
+      <ion-segment-button  class="ok-button" layout="icon-start" (click)="save()">
+        <ion-icon name="add-circle"  size="large"> </ion-icon>
+        Add
+      </ion-segment-button>
+
+    </ion-segment>
+
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,252 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+html {
+    --ion-default-font: "Gothic A1", "Helvetica Neue", sans-serif;
+}
+
+h1 {  }
+
+h2 { font-weight: 400!important; }
+
+h3 { font-weight: 600!important; text-transform: uppercase!important; }
+
+h4 { font-weight: 500!important; font-size:16px; }
+
+.list-md { padding-top: 0; }
+
+.rojo { color: #DF5353; }
+
+.verde { color: #55BF3B; }
+
+.amarillo { color: #FDD835; }
+
+.bg-rojo { background-color: #DF5353; }
+
+.bg-verde { background-color: #55BF3B; }
+
+.bg-amarillo { background-color: #FDD835; }
+
+.horas-05 {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.horas-1 { margin: 2vh 0; }
+
+.horas-2 { margin: 4vh 0; }
+
+.horas-3 { margin: 6vh 0;  }
+
+.horas-4 { margin: 4vh 0; }
+
+.urgente { color: #F44336; }
+
+.atencion { color: #FF9800; }
+
+.normal { color:  #FFEB3B; }
+
+.bien { color:  #4CAF50; }
+
+.urgente-bg { background-color: #F44333; }
+
+.atencion-bg { background-color: #FF9800; }
+
+.normal-bg { background-color:  #FFEB3B; }
+
+.bien-bg { background-color:  #4CAF50; }
+
+
+.ion-color-gris {
+    --ion-color-base: var(--ion-color-gris) !important;
+    --ion-color-base-rgb: var(--ion-color-gris-rgb) !important;
+    --ion-color-contrast: var(--ion-color-youtube-contrast) !important;
+    --ion-color-contrast-rgb: var(--ion-gris-youtube-contrast-rgb) !important;
+    --ion-color-shade: var(--ion-color-gris-shade) !important;
+    --ion-color-tint: var(--ion-color-gris-tint) !important;
+}
+
+.texto-lg {
+    font-size: 18px!important;
+    font-weight: 500!important;
+    line-height: 1em;
+}
+
+.texto-md {
+    font-size: 16px!important;
+    font-weight: 400!important;
+}
+
+p.login-text a {
+    background-color: transparent;
+    color: var(--ion-color-tertiary);
+}
+
+small, ion-label {
+    font-size: 11px!important;
+    font-weight: 300!important;
+    color: var(--ion-color-tertiary) !important;
+    text-transform: uppercase;
+}
+
+.ion-text-nowrap {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.min-max-width {
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.alto100 { height: 100%; }
+
+.alert-radio-group.sc-ion-alert-md, .alert-checkbox-group.sc-ion-alert-md {
+    border-top: 1px solid var(--ion-color-step-800);
+    border-bottom: 1px solid var(--ion-color-step-800);
+}
+
+.alert-radio-label.sc-ion-alert-md,
+.alert-checkbox-label.sc-ion-alert-md {
+    color: var(--ion-color-step-450);
+}
+
+[aria-checked=true] .alert-checkbox-label.sc-ion-alert-md,
+
+[aria-checked=true].sc-ion-alert-md .alert-radio-label.sc-ion-alert-md {
+    color: var(--ion-color-step-150);
+}
+
+.borde { border: 2px solid #F00!important; }
+
+ion-item {
+    --padding-end: 0px;
+    --inner-padding-end: 0px;
+    // here other custom CSS from documentation
+  }
+
+  .ion-padding-list {
+    padding-left: unset;
+    padding-right: unset;
+    -webkit-padding-start: var(--ion-padding, 16px);
+    padding-inline-start: var(--ion-padding, 16px);
+    -webkit-padding-end: 0;
+    padding-inline-end: 0;
+
+    --padding-top: 0px;
+    --padding-bottom: 0px;
+    padding-top: 2px;
+    padding-bottom: 0px;
+
+    font-size: 14px;
+}
+
+.ion-padding-list ion-icon,  ion-checkbox {
+    margin: 2px 4px 0 0!important;
+    vertical-align: bottom;
+    font-size: 16px;
+} 
+
+ion-segment-button { font-weight: 500; }
+
+ion-tab-bar ion-label {
+    font-size: 14px!important;
+    font-weight: 500!important;
+    color: var(--ion-color-secondary)!important; 
+}
+
+ion-tab-bar ion-icon { color: var(--ion-color-tertiary)!important; }
+
+ion-tab-bar .tab-selected { background-color: var(--ion-color-secondary) !important; }
+
+ion-tab-bar .tab-selected ion-label { color: var(--ion-color-tertiary)!important; }
+
+ion-tab-bar .tab-selected ion-icon { color: var(--ion-color-primary)!important; }
+
+
+ion-segment-button.segment-button-checked {
+    color: #FFF!important;
+    font-weight: 500;
+}
+
+ion-segment-button ion-icon {
+    color: var(--ion-color-tertiary) !important;
+    margin-right: 6px;
+}
+
+ion-segment-button.ok-button ion-icon { color: var(--ion-color-primary) !important; }
+
+ion-segment-button.ok-button {
+    background-color: var(--ion-color-secondary) !important;
+    color: var(--ion-color-tertiary) !important;
+}
+
+ion-segment-button.ok-button.segment-button-checked { color: var(--ion-color-secondary) !important; }
+
+ion-segment-button.ok-button.segment-button-checked ion-icon { color: var(--ion-color-primary) !important; }
+
+ion-segment-button.cancel-button {
+    background-color: var(--ion-color-primary) !important;
+    color: var(--ion-color-secondary) !important;
+}
+
+ion-item-option ion-icon { color: var(--ion-color-tertiary)!important; }
+
+body.dark { 
+
+    ion-tab-bar .tab-selected ion-label { color: var(--ion-color-primary)!important; }
+
+    ion-tab-bar .tab-selected ion-icon { color: var(--ion-color-tertiary)!important; }
+
+    ion-segment-button.ok-button ion-icon { color: var(--ion-color-tertiary) !important; }
+
+    ion-segment-button.ok-button { color: var(--ion-color-primary) !important; }
+
+    ion-item-option ion-icon { color: var(--ion-color-primary)!important; }
+
+}
+
+
+
+@media (any-hover: hover) {
+    :host(.ion-activatable:hover) .item-native {
+      color: #F00!important;
+    }
+    :host(.ion-activatable:hover) .item-native::after {
+      background: var(--background-hover);
+      opacity: var(--background-hover-opacity);
+    }
+  
+    :host(.ion-color.ion-activatable:hover) .item-native {
+      color: #0F0!important;
+    }
+    :host(.ion-color.ion-activatable:hover) .item-native::after {
+      background: var(--ion-color-contrast);
+    }
+}
+  

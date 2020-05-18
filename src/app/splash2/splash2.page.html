@@ -1,0 +1,313 @@
+
+<ion-content fullscreen class="ion-padding" scroll-y="false" color="primary" class="splash">
+ 
+  <ion-slides [options]="slideOptsOne" pager="true" class="slides-container">
+
+    <ion-slide class="tertiary-bg">
+
+        <ion-grid>
+          <ion-row>
+      
+              <ion-col size="8" size-md="4" class="ion-align-self-end">
+                
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 285 60" id="logo" class="ion-align-self-center">
+                    <defs>
+                      <style type="text/css">
+                        .primary { fill: #5C6BC0; }
+                      </style>
+                    </defs>
+                    <g id="TODOO">
+                      <polygon id="T" class="primary" points="60,0 45,0 15,0 0,0 0,30 15,30 15,60 45,60 45,30 60,30 "/>
+                      <circle id="O1" class="primary moveLetter60" cx="90" cy="30" r="30"/>
+                      <path id="D" class="primary" d="M135 60c17,0 30,-13 30,-30 0,-17 -13,-30 -30,-30l-15 0 0 60 15 0z"/>
+                      <circle id="O2" class="primary" cx="195" cy="30" r="30"/>
+                      <circle id="O3" class="primary" cx="255" cy="30" r="30"/>
+                    </g>
+                  </svg>
+
+                  <h2 class="secondary animated fadeInUp delay-3s">You know what to do</h2>
+                  
+                  <p>&nbsp;</p>
+
+                  <ion-button [routerLink]="['/home']" type="submit" expand="block" class="primary-bg tertiary animated fadeInUp delay-4s">Enter</ion-button>
+
+                </ion-col>
+
+                <ion-col size="12" class="ion-align-self-end">
+                  
+                  <h4 class="primary animated fadeInDown delay-5s">Know more</h4>
+                  
+                  <ion-icon name="chevron-down" class="primary splash-icon animated fadeInDown delay-5s"></ion-icon>
+              </ion-col>
+            </ion-row>
+        </ion-grid>
+
+    </ion-slide>
+
+    <ion-slide class="primary-bg">
+
+      <ion-grid>
+        <ion-row>
+    
+            <ion-col size="8" class="ion-align-self-end">
+
+              <ion-icon name="add-circle" class="tertiary splash-icon-big animated infinite pulse"></ion-icon>
+              
+              <h2 class="tertiary animated fadeInUp delay-1s">Create your task, add the time and location.</h2>
+
+              <p>&nbsp;</p>
+
+              <ion-icon name="location" class="opaco tertiary-dark splash-icon-med animated infinite delay-1s"></ion-icon>
+
+              <ion-icon name="time" class="opaco tertiary-dark splash-icon-med animated infinite delay-2s"></ion-icon>
+
+              <ion-icon name="add-circle" class="opaco tertiary-dark splash-icon-med animated infinite delay-3s"></ion-icon>
+
+              <ion-icon name="alarm" class="opaco tertiary-dark splash-icon-med animated infinite delay-4s"></ion-icon>
+
+            </ion-col>
+
+            <ion-col size="12" class="ion-align-self-end">
+
+              <h4 class="secondary animated fadeInUp">You can also add your <b>notes</b> or the approximate <b>duration</b>.</h4>
+    
+            </ion-col>
+          </ion-row>
+      </ion-grid>
+
+           
+    </ion-slide>
+
+    <ion-slide class="tertiary-dark-bg">
+
+      <ion-grid>
+        <ion-row>
+    
+            <ion-col size="8" class="ion-align-self-end">
+             
+              <ion-icon name="person" class="person splash-icon-med"></ion-icon>
+
+              <ion-icon name="heart" class="heart splash-icon-med"></ion-icon>
+
+              <ion-icon name="beer" class="beer splash-icon-med"></ion-icon>
+
+              <ion-icon name="cart" class="cart splash-icon-med"></ion-icon>
+
+              <h2 class="secondary">You, your love,<br /> friends and family,<br /> and shopping.<br />
+              <span class="tertiary">Best things in life.</span></h2>
+                
+            </ion-col>
+
+            <ion-col size="12" class="ion-align-self-end">
+                          
+              <h4 class="secondary">Categorize and prioritize your tasks.</h4>
+    
+            </ion-col>
+
+          </ion-row>
+      </ion-grid>
+    
+    </ion-slide>
+
+    <ion-slide class="tertiary-bg">
+
+      <ion-grid>
+        <ion-row>
+    
+            <ion-col size="8" class="ion-align-self-center">
+
+              <ion-icon name="today-outline" class="primary opaco splash-icon-med animated infinite delay-1s"></ion-icon>
+
+              <ion-icon name="calendar-outline" class="primary opaco splash-icon-med animated infinite delay-2s"></ion-icon>
+
+              <ion-icon name="arrow-forward-circle" class="primary opaco splash-icon-med animated infinite delay-3s"></ion-icon>
+
+              <ion-icon name="checkmark-circle" class="primary opaco splash-icon-med animated infinite delay-4s"></ion-icon>
+
+              <h2 class="secondary">Order and schedule your tasks.</h2>
+    
+            </ion-col>
+          </ion-row>
+      </ion-grid>
+    
+    </ion-slide>
+
+    <ion-slide class="secondary-bg">
+
+      <ion-grid>
+        <ion-row>
+    
+            <ion-col size="8" size-md="4" class="ion-align-self-end">
+              
+              <h2 class="tertiary">And do it all.</h2>
+
+              <p>&nbsp;</p>
+
+              <ion-icon name="checkmark-circle" class="tertiary-dark splash-icon-big animated infinite pulse"></ion-icon>
+
+              <h2 class="primary">No one else will.</h2>
+
+              <ion-button [routerLink]="['/home']" type="submit" expand="block" class="primary-bg tertiary animated fadeInUp">Enter</ion-button>
+
+            </ion-col>
+
+            <ion-col size="12" class="ion-align-self-end">
+              
+              <h4 class="primary animated fadeInDown">Need more?</h4>
+              
+              <ion-icon name="chevron-down" class="primary splash-icon animated fadeInDown"></ion-icon>
+          </ion-col>
+    
+          </ion-row>
+      </ion-grid>
+    
+    </ion-slide>
+
+    <ion-slide class="primary-bg">
+
+    <ion-grid>
+      <ion-row>
+  
+          <ion-col size="12" class="ion-align-self-start">
+            
+            <h2 class="tertiary">Do it like a pro</h2>
+
+            <p>&nbsp;</p>
+
+            <ion-icon name="hammer" class="person splash-icon-med"></ion-icon>
+
+            <ion-icon name="build" class="heart splash-icon-med"></ion-icon>
+
+            <ion-icon name="brush" class="beer splash-icon-med"></ion-icon>
+
+            <ion-icon name="bulb" class="cart splash-icon-med"></ion-icon>
+
+          </ion-col>
+
+          <ion-col size="12" size-md="4" class="ion-align-self-center ion-float-left">
+
+            <ul class="ion-text-left">
+              <li>More data: Materials, Tools, customizable.</li>
+              <li>Grill of the working day</li>
+              <li>Automatic schedule calculation</li>
+              <li>Notifications and notices</li>
+              <li>Export data to BB.DD.</li>
+              <li>Productivity analysis</li>
+            </ul>
+
+          </ion-col>
+
+          <ion-col size="12" class="ion-align-self-end">
+
+            <h4 class="tertiary">Working on it. Contact for more info.</h4>
+
+            <h4 class="tertiary-dark animated fadeInDown">Need more yet?</h4>
+            
+            <ion-icon name="chevron-down" class="tertiary-dark splash-icon animated fadeInDown"></ion-icon>
+
+        </ion-col>
+
+  
+        </ion-row>
+    </ion-grid>
+  
+    </ion-slide>
+
+    <ion-slide class="tertiary-dark-bg">
+
+      <ion-grid>
+        <ion-row>
+    
+            <ion-col size="12" class="ion-align-self-start">
+              
+              <h2 class="primary">Full equip.</h2>
+
+              <p>&nbsp;</p>
+
+              <ion-icon name="people" class="primary opaco splash-icon-med animated infinite delay-1s"></ion-icon>
+
+              <ion-icon name="sync" class="primary opaco splash-icon-med animated infinite delay-2s"></ion-icon>
+
+              <ion-icon name="bar-chart" class="primary opaco splash-icon-med animated infinite delay-3s"></ion-icon>
+
+              <ion-icon name="cloud" class="primary opaco splash-icon-med animated infinite delay-4s"></ion-icon>
+
+            </ion-col>
+
+            <ion-col size="12" size-md="4" class="ion-align-self-center ion-float-left">
+  
+              <ul class="ion-text-left">
+                <li>Task Manager Panel.</li>
+                <li>Create multiple users on your team</li>
+                <li>Assign tasks to each team member</li>
+                <li>Communicate changes and alerts in real time</li>
+                <li>Know the current status of the team and tasks</li>
+                <li>Advanced analysis of tasks and productivity</li>
+              </ul>
+    
+            </ion-col>
+
+            <ion-col size="12" class="ion-align-self-end">
+  
+              <h4 class="tertiary">More info soon.</h4>
+   
+            </ion-col>
+          </ion-row>
+      </ion-grid>
+    
+    </ion-slide>
+
+    <ion-slide class="dark-grey-bg">
+
+      <ion-grid>
+        <ion-row>
+    
+            <ion-col size="6" size-md="3" class="ion-align-self-end">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 285 60" id="logo" class="ion-align-self-center">
+                <defs>
+                  <style type="text/css">
+                    .primary { fill: #5C6BC0; }
+                  </style>
+                </defs>
+                <g id="TODOO">
+                  <polygon id="T" class="primary" points="60,0 45,0 15,0 0,0 0,30 15,30 15,60 45,60 45,30 60,30 "/>
+                  <circle id="O1" class="primary moveLetter60" cx="90" cy="30" r="30"/>
+                  <path id="D" class="primary" d="M135 60c17,0 30,-13 30,-30 0,-17 -13,-30 -30,-30l-15 0 0 60 15 0z"/>
+                  <circle id="O2" class="primary" cx="195" cy="30" r="30"/>
+                  <circle id="O3" class="primary" cx="255" cy="30" r="30"/>
+                </g>
+              </svg>
+
+              <p>&nbsp;</p>
+
+              <a href="https://nandroid.com" target="_blank">
+                <ion-icon name="at-circle" class="primary splash-icon-small"></ion-icon>
+              </a>&nbsp;&nbsp;
+              <a href="https://www.instagram.com/nandroide/" target="_blank">
+                <ion-icon name="logo-instagram" class="primary splash-icon-small"></ion-icon>
+              </a>&nbsp;&nbsp;
+              <a href="https://www.facebook.com/nandroiddesign" target="_blank">
+                <ion-icon name="logo-facebook" class="primary splash-icon-small"></ion-icon>
+              </a>&nbsp;&nbsp;
+              <a href="https://www.linkedin.com/in/nandoboronat/" target="_blank">
+                <ion-icon name="logo-linkedin" class="primary splash-icon-small"></ion-icon>
+              </a>
+            </ion-col>
+
+              <ion-col size="12" class="ion-align-self-end">
+  
+                <p class="tertiary-dark">&copy; 2020 nandroid / Guille HXC.</p>
+     
+              </ion-col>
+
+  
+          </ion-row>
+      </ion-grid>
+    
+    </ion-slide>
+
+</ion-slides>
+
+
+</ion-content>

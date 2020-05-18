@@ -1,0 +1,116 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>ToDo!</ion-title>
+    <ion-buttons slot="end">
+      
+      <ion-toggle slot="end"
+            [ngModel]="darkMode"
+            (ionChange)="cambio()">
+            </ion-toggle>
+      <ion-button [routerLink]="['/add-edit-item', { tab:tabIndex, item:-1 }]"><ion-icon slot="icon-only" name="add"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>       
+</ion-header>
+
+<ion-content class="dark">
+  
+  <ion-list #myList lines="full">
+    <ion-reorder-group [disabled]="reorder" (ionItemReorder)="moveItem($event.detail)">
+      <ion-item-sliding *ngFor="let item of tabs[tabIndex].list; let i=index" >
+        <ion-item [routerLink]="['/add-edit-item', { tab:tabIndex, item:i }]"  >
+
+          <ion-grid>
+            <ion-row class="ion-align-items-center">
+
+              <ion-col size="1">
+                <ion-icon size="large" [name]="item.icon" [class]="item.color"></ion-icon>
+              </ion-col>
+
+              <ion-col size="10">
+
+                <ion-row>
+
+                  <ion-col size="12">
+                    <ion-label class="ion-text-nowrap">
+                      <h3 class="ion-text-wrap texto-lg">{{item.task}}</h3>
+                    </ion-label>
+                  </ion-col>
+
+                  <ion-col size="6" size-lg="4">
+                    <ion-label>
+    
+                      <h3><ion-icon name="location" color="gris"></ion-icon>
+                        <small class="ion-hide-lg-down ion-text-uppercase"> Ubicacion<br /></small>
+                        {{item.location}}</h3>
+                      <h3><ion-icon name="chatbox-outline" color="gris"></ion-icon>
+                        <small class="ion-hide-lg-down ion-text-uppercase"> Notas<br /></small>
+                        {{item.comment}}</h3>
+                    </ion-label> 
+                  </ion-col>
+
+                  <ion-col size="6" size-lg="4" class="ion-hide-lg-down">
+                    <ion-label>
+                      
+                      <h3><ion-icon name="cube-outline"></ion-icon>
+                        <small class="ion-hide-lg-down ion-text-uppercase"> Herramientas<br /></small>
+                        {{item.herramientas}}</h3>
+    
+                        <h3><ion-icon name="hammer"></ion-icon>
+                          <small class="ion-hide-lg-down ion-text-uppercase"> Materiales<br /></small>
+                          {{item.materiales}}</h3>
+                    </ion-label> 
+                  
+                  </ion-col>
+
+                  <ion-col size="3" size-lg="2" class="ion-align-self-center">
+                    <ion-label>
+                      
+                      <h2 class="ion-text-center texto-lg">
+                        <ion-icon name="alarm-outline" color="secondary"></ion-icon>
+                        <small class="ion-hide-lg-down ion-text-uppercase"> Duración (min.)</small>
+                        {{item.duration}}</h2>
+                    </ion-label>
+                  </ion-col>
+    
+                  <ion-col size="3" size-lg="2" >
+                      <ion-label>
+                        <p><ion-icon name="time-outline" color="secondary"></ion-icon>
+                          <small class="ion-hide-lg-down ion-text-uppercase"> Hora inicio<br /></small>
+                          {{item.date | date: 'HH:MM'}}</p>
+                        <p><ion-icon name="time" color="secondary"></ion-icon>
+                          <small class="ion-hide-lg-down ion-text-uppercase"> Hora fin<br /></small>
+                          {{item.datete | date: 'HH:MM'}}</p>
+                      </ion-label>
+                  </ion-col>
+
+                </ion-row>
+
+              </ion-col>
+
+              <ion-col size="1" size-lg="1" >
+                <ion-reorder class="ion-float-right"></ion-reorder>
+              </ion-col>
+
+            </ion-row>
+          </ion-grid>
+
+        </ion-item>
+
+        <ion-item-options side="start">
+          <ion-item-option color="danger" (click)="deleteItem(i)">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-reorder-group>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-tab-bar #myTabs color="secondary" [selectedTab]="tabs[0].label">
+    <ion-tab-button *ngFor="let tab of tabs; let i=index" (click)="setTab(i)" [tab]="tab.label">
+      <ion-label>{{tab.label}}</ion-label>
+      <ion-icon [name]="tab.icon" color="primary"></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>

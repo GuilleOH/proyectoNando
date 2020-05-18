@@ -1,0 +1,174 @@
+@import "css/animate.css";
+
+ion-grid { height: 100%; }
+
+ion-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+ion-slides, .slide { height: 100%; }
+
+.swiper-slide { display: block; }
+
+.swiper-slide h2 { margin-top: 2.8rem; }
+
+.swiper-pagination .swiper-pagination-bullet {
+  background: #000!important;
+  opacity: 0.2!important;
+  border: 1px solid #F0F;
+}
+
+.swiper-slide img {
+  max-height: 50%;
+  max-width: 80%;
+  margin: 60px 0 40px;
+  pointer-events: none;
+}
+
+h2 {
+  font-weight: 300 !important;
+}
+
+b { font-weight: 500; }
+
+p {
+  padding: 0 40px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ion-color-step-600, #60646b);
+}
+
+p b { color: var(--ion-text-color, #000000); }
+
+.primary { color: #5c6bc0!important; }
+
+.tertiary { color: #484c7d!important; }
+
+.tertiary-dark { color: #525b9f!important; }
+
+.secondary { color: #8893d1!important; }
+
+.dark-grey { color: #2e2e2e!important; }
+
+
+.primary-bg { background-color: #5c6bc0!important; }
+
+.tertiary-bg { background-color: #484c7d!important; }
+
+.tertiary-dark-bg { background-color: #525b9f!important; }
+
+.secondary-bg { background-color: #8893d1!important; }
+
+.dark-grey-bg { background-color: #2e2e2e!important; }
+
+.dark-bg { background-color: #484c7d!important; }
+
+.splash-icon { font-size: 25px!important; }
+
+.splash-icon-small { font-size: 30px!important; }
+
+.splash-icon-med { font-size: 50px!important; }
+
+.splash-icon-big { font-size: 100px!important; }
+
+ion-button {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+/* MEDIA QUERIES */
+  
+@media (min-width: 576px) { }
+ 
+@media (min-width: 768px) { 
+
+  .splash-icon-small { font-size: 50px!important; }
+
+  .splash-icon-med { font-size: 100px!important; }
+
+  .splash-icon-big { font-size: 200px!important; }
+
+}
+
+@media (min-width: 992px) { }
+
+@media (min-width: 1200px) { }
+
+
+/* ANIMACIONES */
+
+#T, #O1, #D, #O2, #O3 {
+  opacity: 0;
+  animation: 2s 0.8s linear fadeIn;
+  animation-fill-mode: forwards;
+}
+
+#O1 { transform: translateX(-20%); }
+
+#D { transform: translateX(-40%); }
+
+#O2 { transform: translateX(-60%); }
+
+#O3 { transform: translateX(-80%); }
+
+
+@keyframes fadeIn {
+
+  100% {
+      opacity: 0.5;
+      transform: translateX(0%);
+  }
+
+}
+
+@-webkit-keyframes colores {
+  0%   {color: #FFEB3B}
+  25%  {color: #FF9800} 
+  50%  {color: #F44333}
+  75% {color: #4CAF50}
+  100%   {color: #FFEB3B}
+}
+
+@keyframes colores {
+  0%   {color: #FFEB3B}
+  25%  {color: #FF9800} 
+  50%  {color: #F44333}
+  75% {color: #4CAF50}
+  100%   {color: #FFEB3B}
+}
+
+
+ion-icon.person, ion-icon.heart, ion-icon.beer, ion-icon.cart {
+  animation: 4s 0.8s linear colores;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: step-end;
+}
+
+ion-icon.person { animation-delay: 0s;  }
+ion-icon.heart { animation-delay: 1s; }
+ion-icon.beer { animation-delay: 2s; }
+ion-icon.cart { animation-delay: 3s; }
+
+
+@keyframes opacidad {
+  0%   { opacity: 0 }
+  25%  { opacity: 0 }
+  50%  { opacity: 1 }
+  75% { opacity: 0 }
+  100%   { opacity: 0 }
+}
+
+.opaco {
+  animation: 4s 0.8s linear opacidad;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: step-end;
+}
+
+
+
+

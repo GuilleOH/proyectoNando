@@ -1,0 +1,144 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary" >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 285 60" id="logo" class="ion-padding" style="width: 160px;">
+      <defs>
+        <style type="text/css">
+          .tertiary { fill: #484c7d; }
+          .dark .tertiary { fill:#525B9F;  }
+        </style>
+      </defs>
+      <g id="TODOO">
+        <polygon id="T" class="tertiary" points="60,0 45,0 15,0 0,0 0,30 15,30 15,60 45,60 45,30 60,30 "/>
+        <circle id="O1" class="tertiary moveLetter60" cx="90" cy="30" r="30"/>
+        <path id="D" class="tertiary" d="M135 60c17,0 30,-13 30,-30 0,-17 -13,-30 -30,-30l-15 0 0 60 15 0z"/>
+        <circle id="O2" class="tertiary" cx="195" cy="30" r="30"/>
+        <circle id="O3" class="tertiary" cx="255" cy="30" r="30"/>
+      </g>
+    </svg>
+
+    <ion-buttons slot="end">
+
+      <ion-toggle
+          [ngModel]="darkMode"
+          (ionChange)="darklight()">
+      </ion-toggle>
+
+      <ion-button color="tertiary" [routerLink]="['/add-edit-item', { tab:tabIndex, item:-1 }]">
+        <ion-icon size="large" name="add-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list #myList lines="full">
+    <ion-reorder-group [disabled]="reorder" (ionItemReorder)="moveItem($event.detail)">
+      <ion-item-sliding *ngFor="let item of tabs[tabIndex].list; let i=index" >
+        <ion-item [routerLink]="['/add-edit-item', { tab:tabIndex, item:i }]" class="ion-no-padding" >
+
+          <ion-grid class="ion-text-nowrap">
+            <ion-row class="ion-align-items-center">
+
+              <ion-col size="1" class="ion-text-center">
+                <ion-icon size="large" [name]="item.icon" [class]="item.color" ></ion-icon>
+              </ion-col>
+
+              <ion-col size="10" class="ion-no-padding">
+
+                <ion-row>
+
+                  <ion-col size="12"  class="ion-text-nowrap ion-padding-list">
+                      <span class="ion-no-margin texto-lg" >{{item.task}}</span>
+                  </ion-col>
+
+                  <ion-col size="8" size-lg="9" >
+
+                    <ion-row >
+
+                      <ion-col size="12" size-md="6" class="ion-text-nowrap ion-padding-list">
+                        <ion-icon name="location-outline" color="secondary"></ion-icon>
+                        <small class="ion-hide-md-down "> Ubicacion<br /></small>
+                        <span class="ion-text-uppercase">{{item.location}}</span>
+
+                      </ion-col>
+
+                      <ion-col size="12" size-md="6" class="ion-text-nowrap ion-padding-list">
+
+                        <ion-icon name="chatbox-outline" color="secondary"></ion-icon>
+                        <small class="ion-hide-md-down ion-text-uppercase"> Comments<br /></small>
+                        {{item.comment}}
+
+                      </ion-col>
+
+                    </ion-row>
+
+                  </ion-col>
+
+                  <ion-col size="4" size-lg="3" >
+
+                    <ion-row >
+
+                      <ion-col size="12" size-md="6" class="ion-text-nowrap ion-padding-list">
+
+                        <ion-icon name="time-outline" color="secondary"></ion-icon>
+                        <small class="ion-hide-md-down ion-text-uppercase"> Time<br /></small>
+                        {{item.date | date: 'HH:MM'}}
+
+                      </ion-col>
+
+                      <ion-col size="12" size-md="6" class="ion-text-nowrap ion-padding-list">
+
+                        <ion-icon name="alarm-outline" color="secondary"></ion-icon>
+                          <small class="ion-hide-md-down ion-text-uppercase"> Duration<br /></small>
+                          {{item.duration}}
+
+                      </ion-col>
+
+                    </ion-row>
+
+
+                  </ion-col>
+
+                </ion-row>
+
+              </ion-col>
+
+              <ion-col size="1" class="ion-text-center" >
+                <ion-reorder class="ion-float-right"></ion-reorder>
+              </ion-col>
+
+            </ion-row>
+
+          </ion-grid>
+
+        </ion-item>
+
+        <ion-item-options side="start" >
+
+          <ion-item-option *ngIf="tabIndex != 1" color="secondary" (click)="soonItem(i)">
+            <ion-icon  slot="icon-only" name="arrow-forward"></ion-icon>
+          </ion-item-option>
+          
+          <ion-item-option *ngIf="tabIndex != 2" (click)="doneItem(i)" color="secondary">
+            <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+          </ion-item-option>
+
+          <ion-item-option (click)="deleteItem(i)" color="secondary">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-item-option>
+
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-reorder-group>
+  </ion-list>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-tab-bar #myTabs color="primary" [selectedTab]="tabs[0].label">
+    <ion-tab-button layout="icon-start" *ngFor="let tab of tabs; let i=index" (click)="setTab(i)" [tab]="tab.label">
+      <ion-label>{{tab.label}}</ion-label>
+      <ion-icon [name]="tab.icon" ></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>
