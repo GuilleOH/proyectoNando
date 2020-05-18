@@ -28,10 +28,10 @@ const routes: Routes = [
     path: 'splash2',
     loadChildren: () => import('./splash2/splash2.module').then( m => m.Splash2PageModule)
   },
-  {
-    path: 'map',
-    loadChildren: () => import('./map/map.module').then( m => m.MapPageModule)
-  },
+  // {
+  //   path: 'map',
+  //   loadChildren: () => import('./map/map.module').then( m => m.MapPageModule)
+  // },
 ];
 
 @NgModule({
