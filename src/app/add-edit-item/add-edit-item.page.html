@@ -47,9 +47,8 @@
       <ion-input [(ngModel)]="item.task"></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label (click)="onOpenMap()">Location</ion-label>
-      <
+    <ion-item button (click)="onOpenMap()">
+      <ion-label>Location: {{item.location ? item.location : ''}}</ion-label>
       <!-- <ion-select multiple="true" cancelText="Cancelar" okText="Aceptar" [(ngModel)]="item.location">
         <ion-select-option value="Home">Home</ion-select-option>
         <ion-select-option value="Father's home">Father's home</ion-select-option>

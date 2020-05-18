@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ToastController, LoadingController } from '@ionic/angular';
+import { ToastController, LoadingController, ModalController } from '@ionic/angular';
 
 
 
@@ -25,6 +25,8 @@ tendré que cerrar este modal con la direccion elegida
   constructor(
     private toastCtrl: ToastController,
     private loadingCtrl: LoadingController,
+    private modalCtrl: ModalController,
+    
     // private mapsAPILoader: MapsAPILoader
   ) {}
 
@@ -54,6 +56,9 @@ tendré que cerrar este modal con la direccion elegida
       //       }
       //   });
       // });
+    }
 
+    onGoBack(){
+      this.modalCtrl.dismiss();
     }
 }

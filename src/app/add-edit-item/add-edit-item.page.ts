@@ -75,11 +75,13 @@ export class AddEditItemPage {
       componentProps: {
       },
       backdropDismiss: false,
+      cssClass:'modalAncho'
     });
     await modal.present();
     modal.onDidDismiss().then((data)=>{
       console.log(data);
       // this.recargaUbicacionActual();
+      this.item.location = "ya hay";
     });
   }
 }
