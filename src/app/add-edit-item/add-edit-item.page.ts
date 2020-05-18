@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AlertController, ModalController} from '@ionic/angular';
 import { ListService } from '../list.service';
 import { Validators } from '@angular/forms';
-// import { MapPage } from '../map/map.page';
+import { MapPage } from '../map/map.page';
 
 @Component({
   selector: 'app-add-edit-item',
@@ -70,16 +70,16 @@ export class AddEditItemPage {
   }
 
   async onOpenMap(){
-    // const modal = await this.modalCtrl.create({
-    //   component: MapPage,
-    //   componentProps: {
-    //   },
-    //   backdropDismiss: false,
-    // });
-    // await modal.present();
-    // modal.onDidDismiss().then((data)=>{
-    //   console.log(data);
-    //   // this.recargaUbicacionActual();
-    // });
+    const modal = await this.modalCtrl.create({
+      component: MapPage,
+      componentProps: {
+      },
+      backdropDismiss: false,
+    });
+    await modal.present();
+    modal.onDidDismiss().then((data)=>{
+      console.log(data);
+      // this.recargaUbicacionActual();
+    });
   }
 }

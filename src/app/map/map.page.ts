@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { ToastController, LoadingController, Platform } from '@ionic/angular';
-import { MapsAPILoader } from '@agm/core';
+import { ToastController, LoadingController } from '@ionic/angular';
 
 
 

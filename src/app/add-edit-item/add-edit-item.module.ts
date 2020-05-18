@@ -8,7 +8,7 @@ import { AddEditItemPageRoutingModule } from './add-edit-item-routing.module';
 
 import { AddEditItemPage } from './add-edit-item.page';
 
-// import { MapPageModule } from '../map/map.module';
+import { MapPageModule } from '../map/map.module';
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import { AddEditItemPage } from './add-edit-item.page';
     FormsModule,
     IonicModule,
     AddEditItemPageRoutingModule,
-    // MapPageModule
+    MapPageModule
   ],
   declarations: [AddEditItemPage]
 })
