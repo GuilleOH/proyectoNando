@@ -3,24 +3,23 @@
     <ion-buttons slot="start">
       <ion-button (click)="onGoBack()"><ion-icon name="arrow-back"></ion-icon></ion-button>
     </ion-buttons>
-    <ion-title>
-      Select location
-    </ion-title>
+    <ion-searchbar #mySearch></ion-searchbar>
   </ion-toolbar>
 </ion-header>
-
-
 <ion-content>
+
   <agm-map
-    [streetViewControl]=false
-    [zoomControl]=true
-    [latitude]="location.lat"
-    [longitude]="location.lng"
-    [zoom]="13"
-
+    [latitude]="latitude"
+    [longitude]="longitude"
+    [zoom]="zoom"
     (mapClick)="onClick($event)">
-
-
+    <agm-marker
+      [latitude]="latitude"
+      [longitude]="longitude">
+    </agm-marker>
   </agm-map>
+
+
+  <h5>Address: {{address}}</h5>
 
 </ion-content>

@@ -78,10 +78,10 @@ export class AddEditItemPage {
       cssClass:'modalAncho'
     });
     await modal.present();
-    modal.onDidDismiss().then((data)=>{
-      console.log(data);
-      // this.recargaUbicacionActual();
-      this.item.location = "ya hay";
+    /*Al salir de la pagina del mapa cogemos la direccion seleccionada y la guardamos en el item
+    (no entiendo bien porque viene en data.data.address y no directamente en data.address pero así funciona)*/
+    modal.onDidDismiss().then((data:any)=>{
+      this.item.location = data.data ?  data.data.address: '';
     });
   }
 }
