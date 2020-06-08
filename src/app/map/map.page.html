@@ -9,17 +9,14 @@
 <ion-content>
 
   <agm-map
-    [latitude]="latitude"
-    [longitude]="longitude"
+    [latitude]="location.latitude"
+    [longitude]="location.longitude"
     [zoom]="zoom"
     (mapClick)="onClick($event)">
     <agm-marker
-      [latitude]="latitude"
-      [longitude]="longitude">
+      [latitude]="location.latitude"
+      [longitude]="location.longitude">
     </agm-marker>
   </agm-map>
-
-
-  <h5>Address: {{address}}</h5>
 
 </ion-content>

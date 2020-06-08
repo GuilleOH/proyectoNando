@@ -103,8 +103,37 @@ export class HomePage {
       //Vuelvo a recargar las listas aunque tendría que haber alguna manera mas limpia de hacer esto
       this.loadLists();
     })
+  }
 
-
+  async todayItem(indexItem) {
+    const alert = await this.alertController.create({
+      header: indexItem === undefined ? 'Cancel' : '',
+      message: 'Move to today tasks?',
+      buttons: [
+        {
+          text: 'OK',
+          handler: () => {
+            this.listRef.closeSlidingItems();
+            if (indexItem === undefined) {
+              this.listService.deleteList(this.tabIndex);
+            }
+            else {
+              // this.listService.deleteItem(this.tabIndex, item);
+              this.listService.moveItemToOtherList(indexItem, this.tabIndex, 0);
+            }
+          }
+        },
+        {
+          text: 'CANCEL',
+          role: 'cancel'
+        }
+      ]
+    });
+    await alert.present();
+    alert.onDidDismiss().then(()=>{
+      //Vuelvo a recargar las listas aunque tendría que haber alguna manera mas limpia de hacer esto
+      this.loadLists();
+    })
   }
 
   async soonItem(indexItem) {

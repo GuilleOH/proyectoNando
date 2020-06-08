@@ -48,19 +48,12 @@
     </ion-item>
 
     <ion-item button (click)="onOpenMap()">
-      <ion-label>Location: {{item.location ? item.location : ''}}</ion-label>
-      <!-- <ion-select multiple="true" cancelText="Cancelar" okText="Aceptar" [(ngModel)]="item.location">
-        <ion-select-option value="Home">Home</ion-select-option>
-        <ion-select-option value="Father's home">Father's home</ion-select-option>
-        <ion-select-option value="Boy/Girlfriend's house">Boy/Girlfriend's house</ion-select-option>
-        <ion-select-option value="Friend's house">Friend's house</ion-select-option>
-        <ion-select-option value="Favorite Bar">Favorite Bar</ion-select-option>
-        <ion-select-option value="Office">Office</ion-select-option>
-        <ion-select-option value="Mall">Mall</ion-select-option>
-        <ion-select-option value="Neighborhood">Neighborhood</ion-select-option>
-        <ion-select-option value="Market">Market</ion-select-option>
-        <ion-select-option value="Park">Park</ion-select-option>
-      </ion-select> -->
+      <ion-label>Location: {{
+        item.location ?
+        (item.location.name ? item.location.name + ',' + item.location.address : item.location.address)
+        : ''
+      }}
+      </ion-label>
     </ion-item>
 
     <ion-item>

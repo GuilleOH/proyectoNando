@@ -59,7 +59,11 @@
                       <ion-col size="12" size-md="6" class="ion-text-nowrap ion-padding-list">
                         <ion-icon name="location-outline" color="secondary"></ion-icon>
                         <small class="ion-hide-md-down "> Ubicacion<br /></small>
-                        <span class="ion-text-uppercase">{{item.location}}</span>
+                        <span class="ion-text-uppercase">{{
+                          item.location ?
+                          (item.location.name ? item.location.name + ',' + item.location.address : item.location.address)
+                          : ''
+                        }}</span>
 
                       </ion-col>
 
@@ -116,10 +120,14 @@
 
         <ion-item-options side="start" >
 
+          <ion-item-option *ngIf="tabIndex != 0" color="secondary" (click)="todayItem(i)">
+            <ion-icon  slot="icon-only" name="today"></ion-icon>
+          </ion-item-option>
+
           <ion-item-option *ngIf="tabIndex != 1" color="secondary" (click)="soonItem(i)">
             <ion-icon  slot="icon-only" name="arrow-forward"></ion-icon>
           </ion-item-option>
-          
+
           <ion-item-option *ngIf="tabIndex != 2" (click)="doneItem(i)" color="secondary">
             <ion-icon slot="icon-only" name="checkmark"></ion-icon>
           </ion-item-option>

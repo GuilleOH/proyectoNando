@@ -1,5 +1,5 @@
 import { Component,OnInit, ViewChild, NgZone} from '@angular/core';
-import { ToastController, LoadingController, ModalController, IonSearchbar } from '@ionic/angular';
+import { ToastController, LoadingController, ModalController, IonSearchbar, NavParams } from '@ionic/angular';
 import { MapsAPILoader } from '@agm/core';
 @Component({
   selector: 'app-map',
@@ -8,13 +8,18 @@ import { MapsAPILoader } from '@agm/core';
 })
 export class MapPage implements OnInit{
 
-
- location: any;
- latitude: number;
- longitude: number;
  zoom:number;
-
- address: string;
+ location: {
+  address: string; //direccion del sitio elegido
+  name: string; //nombre del sitio elegido (puede estar en blanco)
+  latitude: number;
+  longitude: number;
+} = {
+  address: '',
+  name: '',
+  latitude: null,
+  longitude: null,
+};
  private geoCoder;
 
 
@@ -33,13 +38,19 @@ tendré que cerrar este modal con la direccion elegida
     private loadingCtrl: LoadingController,
     private modalCtrl: ModalController,
     private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    private navParams : NavParams
   ) {}
 
 
-  ngOnInit(){//load Places Autocomplete
+  ngOnInit(){
+
+
     this.mapsAPILoader.load().then(async () => {
+
+
       this.setCurrentLocation();
+
       this.geoCoder = new google.maps.Geocoder;
 
       //Por cada cambio en la barra buscadora autocompletamos las referencias
@@ -53,12 +64,12 @@ tendré que cerrar este modal con la direccion elegida
           if (place.geometry === undefined || place.geometry === null) {
             return;
           }
-
           //set latitude, longitude and zoom
-          this.address = place.formatted_address;
-          this.latitude = place.geometry.location.lat();
-          this.longitude = place.geometry.location.lng();
-          this.zoom = 12;
+          this.location.address = place.formatted_address;
+          this.location.name = place.name;
+          this.location.latitude = place.geometry.location.lat();
+          this.location.longitude = place.geometry.location.lng();
+          this.zoom = 15;
         });
       });
     });
@@ -70,16 +81,35 @@ tendré que cerrar este modal con la direccion elegida
   */
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.getAddress(position.coords.latitude, position.coords.longitude);
-      }, (err)=>{
-        //Ponemos coordenadas de Valencia por defecto si falla la geolocalizacion
-        this.latitude = 39.4697500;
-        this.longitude = -0.3773900;
-        this.zoom = 13;
-        this.getAddress(this.latitude, this.longitude);
-      });
+
+      if(this.navParams.data.loc){
+        this.location = this.navParams.data.loc;
+        this.zoom = 15;
+      }
+
+      else{
+        navigator.geolocation.getCurrentPosition((position) => {
+          this.getAddress(position.coords.latitude, position.coords.longitude);
+        }, (err)=>{
+
+          this.locationDefecto();
+          this.zoom = 15;
+          this.getAddress(this.location.latitude, this.location.longitude);
+        });
+      }
+
     }
+  }
+
+
+/**
+//Ponemos coordenadas de Valencia por defecto si falla la geolocalizacion
+*/
+  private locationDefecto(){
+    this.location.latitude = 39.4697500;
+    this.location.longitude = -0.3773900;
+    this.location.address = '';
+    this.location.name = 'Valencia, España'
   }
 
 
@@ -91,10 +121,11 @@ Si todo va bien guardamos las variables latitude, longitude y address
    this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
      if (status === 'OK') {
        if (results[0]) {
-         this.zoom = 12;
-         this.latitude = latitude;
-         this.longitude = longitude;
-         this.address = results[0].formatted_address;
+         this.zoom = 15;
+         this.location.latitude = latitude;
+         this.location.longitude = longitude;
+         this.location.address = results[0].formatted_address;
+         this.location.name = null;
        } else {
          window.alert('No results found');
        }
@@ -110,14 +141,14 @@ Funcion que se hace al hacer click sobre el mapa
  */
   onClick(event){
     console.log(event);
-    this.latitude = event.coords.lat;
-    this.longitude = event.coords.lng;
-    this.getAddress(this.latitude, this.longitude);
+    this.location.latitude = event.coords.lat;
+    this.location.longitude = event.coords.lng;
+    this.getAddress(this.location.latitude, this.location.longitude);
 }
 
   onGoBack(){
     this.modalCtrl.dismiss({
-      address: this.address
+      location: this.location
     });
   }
 }

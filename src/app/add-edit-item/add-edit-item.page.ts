@@ -73,6 +73,7 @@ export class AddEditItemPage {
     const modal = await this.modalCtrl.create({
       component: MapPage,
       componentProps: {
+        loc: this.item.location
       },
       backdropDismiss: false,
       cssClass:'modalAncho'
@@ -80,8 +81,9 @@ export class AddEditItemPage {
     await modal.present();
     /*Al salir de la pagina del mapa cogemos la direccion seleccionada y la guardamos en el item
     (no entiendo bien porque viene en data.data.address y no directamente en data.address pero así funciona)*/
-    modal.onDidDismiss().then((data:any)=>{
-      this.item.location = data.data ?  data.data.address: '';
+    modal.onDidDismiss().then((resp:any)=>{
+
+      this.item.location = resp.data ?  resp.data.location: '';
     });
   }
 }
